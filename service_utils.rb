@@ -61,6 +61,18 @@ def print_leave_time( station, timestr )
 	  leave_time = addmins( timestr,  - @station_walk_time[station] )
     printf $format, leave_time
 end
+#----------------------------------------------------------
+def get_note( stops )
+	pp stops
+	stops.each do |st|
+		if st["station_code"] == 'PUO'
+			puts "perly oak"
+
+		end
+	end
+	exit
+end
+#----------------------------------------------------------
 def extract_times_col( stops, wanted, format )
     stophash = {}       # hask of stops for this train
     stops.each do |st|
@@ -68,6 +80,7 @@ def extract_times_col( stops, wanted, format )
     	plat= get_platform(st)
     	stophash [st["station_code"]] = get_time( st) + plat
     end
+		note = get_note stops
 		if format == 'k'  # keyed format
 			$format= '%-12s' # # TODO: bodge?
 			#pp wanted.first
