@@ -68,7 +68,9 @@ def get_note( stops )
 	stops.each do |st|
 		case st["station_code"]
 		when	'PUO'
-      note = ' TAT?'
+      note += ' TAT?'
+		when	'PUR'
+      note += ' ' + 	st['aimed_departure_time'] 
 		end
 	end
 	return note
