@@ -1,5 +1,5 @@
 require_relative "transportapi"
-require '~/exp/ruby/timeutil'   ## TODO: refactor
+require_relative 'lib/timeutil'
 
 # returns departure (if appropriate) or arrival time for a stop
 def get_time( stop)
