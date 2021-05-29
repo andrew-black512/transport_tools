@@ -66,7 +66,8 @@ def get_note( stops )
 	## pp stops
 	note = ''
 	stops.each do |st|
-		if st["station_code"] == 'PUO'
+		case st["station_code"]
+		when	'PUO'
       note = ' TAT?'
 		end
 	end
