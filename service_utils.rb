@@ -63,14 +63,15 @@ def print_leave_time( station, timestr )
 end
 #----------------------------------------------------------
 def get_note( stops )
-	pp stops
+	## pp stops
+	note = ''
 	stops.each do |st|
 		if st["station_code"] == 'PUO'
-			puts "perly oak"
-
+      note = ' TAT?'
 		end
 	end
-	exit
+	return note
+	#####exit
 end
 #----------------------------------------------------------
 def extract_times_col( stops, wanted, format )
@@ -99,7 +100,7 @@ def extract_times_col( stops, wanted, format )
         printf $format, stoptime ? stoptime : "  -"
       end
     if format == 'd'
-        printf $format,  stops.last["station_code"]
+        printf $format,  stops.last["station_code"] + note
     else # 'e'
 			  # lists all stops e=excruciating ...
         printf "  %s", join_element( stops, "station_code",  '-')
