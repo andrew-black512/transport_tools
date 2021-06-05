@@ -54,4 +54,13 @@ def print_depatures (dep)
     end
   end
 end
-print_depatures ( getDepartures  '490006526A')
+
+def get_stopname( textname)
+  # '490006526A'
+  textname # TODO: translate as needed
+end
+
+
+stop = get_stopname( ARGV.shift )
+puts stop
+print_depatures ( getDepartures  stop)
