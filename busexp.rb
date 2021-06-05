@@ -1,5 +1,8 @@
 #!/usr/bin/ruby
 
+#"name": "Elsie Road (Stop A)",
+# notes/bus_example-10-  "stop_name": "Elsie Road",
+
 require 'json'
 require 'time'
 require 'optparse'
@@ -33,25 +36,29 @@ def getDepartures( stopnum )
 
   url = "http://transportapi.com/v3/uk/#{par}/live.json?#{idkey}"
 
-  puts url
+  #puts url
   response = HTTParty.get(URI.parse(url))
   #puts response.body.to_s
 
   traindata = JSON::parse(response.body)
-  pp traindata
+  ## pp traindata
 
   return traindata["departures"]
 end
 
 def print_depatures (dep)
-  puts  dep.keys.join ','
+  wanted_bus = {'484'=> true } ## TODO: make a parm
+  # puts  dep.keys.join ','
   dep.each do |key,depgroup|
-    puts key # busno
-    #puts depgroup.class
-    #puts depgroup.first
-    depgroup.each do  |d|
-      puts ' ' + d["expected_departure_time"]
+    if wanted_bus [key]
+      puts key # busno
+      #puts depgroup.class
+      #puts depgroup.first
+      depgroup.each do  |d|
+        puts '    ' + d["expected_departure_time"]
+      end
     end
+    puts
   end
 end
 
