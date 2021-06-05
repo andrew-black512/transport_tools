@@ -70,8 +70,9 @@ def get_note( stops )
 		when	'PUO'
       note += ' TAT?'
 		when	'PUR'
-			note += ' ' + 	st['aimed_arrival_time'] 
-			note += ' ' + 	st['aimed_departure_time']
+			## TODO: better was of DEFINED-OR?
+			note += ' ' + 	st['aimed_arrival_time']  if st['aimed_arrival_time']
+			note += ' ' + 	st['aimed_departure_time'] if st['aimed_departure_time']
 		end
 	end
 	return note
