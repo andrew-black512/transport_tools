@@ -67,7 +67,8 @@ def get_stopname( textname)
   textname # TODO: translate as needed
 end
 
-
-stop = get_stopname( ARGV.shift )
-puts stop
-print_depatures ( getDepartures  stop)
+ARGV.each do |s|
+  stop = get_stopname( s )
+  puts stop
+  print_depatures ( getDepartures  stop)
+end
