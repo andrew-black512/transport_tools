@@ -30,7 +30,6 @@ def getDepartures( stopnum )
       stopnum ,
        ].join '/'
   idkey="api_key=e007c65598b617695cdec19c8349656f&app_id=71b00a99"
-  trainlist = []
 
   url = "http://transportapi.com/v3/uk/#{par}/live.json?#{idkey}"
 
@@ -45,7 +44,7 @@ def getDepartures( stopnum )
 end
 
 def print_depatures (dep)
-  pp  dep.keys
+  puts  dep.keys.join ','
   dep.each do |key,depgroup|
     puts key # busno
     #puts depgroup.class
