@@ -46,5 +46,13 @@ end
 
 def print_depatures (dep)
   pp  dep.keys
+  dep.each do |key,depgroup|
+    puts key # busno
+    #puts depgroup.class
+    #puts depgroup.first
+    depgroup.each do  |d|
+      puts ' ' + d["expected_departure_time"]
+    end
+  end
 end
 print_depatures ( getDepartures  '490006526A')
