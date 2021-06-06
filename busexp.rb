@@ -5,15 +5,9 @@
 
 require 'json'
 require 'time'
-require 'optparse'
-require 'optparse/date'
-require 'optparse/time'
 require 'httparty'
 require 'pp'
 
-require_relative 'holiday_add'
-require_relative 'service_utils'
-require_relative 'journey'
 #-------------------------------------------------------------------------------
 class Array
     def reverseif( condition )
