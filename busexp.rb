@@ -37,13 +37,13 @@ def getDepartures( stopnum )
   traindata = JSON::parse(response.body)
   ## pp traindata
 
-  return traindata["departures"]
+  return traindata
 end
 
 def print_depatures (dep)
   wanted_bus = {'484'=> true } ## TODO: make a parm
   # puts  dep.keys.join ','
-  dep.each do |key,depgroup|
+  dep["departures"].each do |key,depgroup|
     if wanted_bus [key]
       puts key # busno
       #puts depgroup.class
