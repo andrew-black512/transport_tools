@@ -9,14 +9,6 @@ require 'httparty'
 require 'pp'
 
 #-------------------------------------------------------------------------------
-class Array
-    def reverseif( condition )
-      condition ?
-       self.reverse :
-       self
-    end
-end
-
 
 #-------------------------------------------------------------------------------
 def getDepartures( stopnum )
