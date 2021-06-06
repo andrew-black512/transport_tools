@@ -41,7 +41,9 @@ def getDepartures( stopnum )
 end
 
 def print_depatures (dep)
+
   wanted_bus = {'484'=> true } ## TODO: make a parm
+  wanted_bus.default = true
   # puts  dep.keys.join ','
   dep["departures"].each do |key,depgroup|
     if wanted_bus [key]
