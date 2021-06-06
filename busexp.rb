@@ -9,7 +9,10 @@ require 'httparty'
 require 'pp'
 
 #-------------------------------------------------------------------------------
-
+def stop_name( dep )
+  dep["name"]
+# # TODO:  also try  "stop_name": "Elsie Road",
+end
 #-------------------------------------------------------------------------------
 def getDepartures( stopnum )
 
@@ -33,7 +36,7 @@ def getDepartures( stopnum )
 end
 
 def print_depatures (dep)
-
+  puts stop_name( dep )
   wanted_bus = {'484'=> true } ## TODO: make a parm
   wanted_bus.default = true
   # puts  dep.keys.join ','
@@ -50,13 +53,12 @@ def print_depatures (dep)
   end
 end
 
-def get_stopname( textname)
+def get_stopname( textname) # TODO: rename
   # '490006526A'
   textname # TODO: translate as needed
 end
 
 ARGV.each do |s|
   stop = get_stopname( s )
-  puts stop
   print_depatures ( getDepartures  stop)
 end
