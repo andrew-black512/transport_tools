@@ -10,5 +10,7 @@ end
 def timefromnow(timestr)
     timediff = (  Time.parse( timestr) -  Time.now ).to_int
     # sign
-    sprintf "%2dm% 0.2ds" , timediff / 60 , timediff % 60
+    puts timediff
+    sign = timediff < 0 ? '-' : ''
+    sprintf "%2dm% 0.2ds" , timediff.abs / 60 , timediff.abs % 60
 end
