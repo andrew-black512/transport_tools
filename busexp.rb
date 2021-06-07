@@ -41,9 +41,8 @@ def print_depatures (dep)
   # puts  dep.keys.join ','
   dep["departures"].each do |key,depgroup|
     if wanted_bus [key]
-      puts key # busno
-      #puts depgroup.class
-      #puts depgroup.first
+      puts key    #  a line (normaly a busnumber)
+      #pp depgroup #  an [array] of departures
       depgroup.each do  |d|
         puts '    ' + d["expected_departure_time"]
       end
