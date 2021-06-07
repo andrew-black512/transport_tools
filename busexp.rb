@@ -36,7 +36,7 @@ end
 
 def print_depatures (dep)
   puts stop_name( dep )
-  wanted_bus = {'484'=> true } ## TODO: make a parm
+  wanted_bus = {'484'=> true } ## TODO: make a param
   wanted_bus.default = true
   # puts  dep.keys.join ','
   dep["departures"].each do |key,depgroup|
@@ -47,7 +47,7 @@ def print_depatures (dep)
         puts '    ' + d["expected_departure_time"]
       end
     end
-    puts
+    puts  # blank line between groups
   end
 end
 
