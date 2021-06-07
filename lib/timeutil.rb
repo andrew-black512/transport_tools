@@ -9,7 +9,6 @@ def timediff(timestr, timestr_b)
 end
 def timefromnow(timestr)
     timediff = (  Time.parse( timestr) -  Time.now ).to_int
+    # sign
     sprintf "%2dm% 0.2ds" , timediff / 60 , timediff % 60
 end
-
-#puts timefromnow( '13:55')
