@@ -23,15 +23,14 @@ def getDepartures( stopnum )
   idkey=get_key
 
   url = "http://transportapi.com/v3/uk/#{par}/live.json?#{idkey}"
-
   #puts url
+
   response = HTTParty.get(URI.parse(url))
   #puts response.body.to_s
+  trasport_data = JSON::parse(response.body)
+  ## pp trasport_data
 
-  traindata = JSON::parse(response.body)
-  ## pp traindata
-
-  return traindata
+  return trasport_data
 end
 
 def print_depatures (dep)
