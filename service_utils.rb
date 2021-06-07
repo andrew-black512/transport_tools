@@ -9,6 +9,7 @@ def get_time( stop)
 end
 
 # TODO - get this from a config file / command option
+# maybe only arrivale or detparture (eg LBG dep only is intersteomg)
 @station_platform = {
     'LBG' => 1,
 		'PUR' => 1, # useful for CAT/TAT trains
