@@ -7,6 +7,7 @@ require 'time'
 require 'httparty'
 require 'pp'
 require_relative "cred" # TODO: make option
+require_relative 'lib/timeutil'
 
 #-------------------------------------------------------------------------------
 def stop_name( dep )
@@ -45,8 +46,8 @@ def print_depatures (dep)
       #pp depgroup #  an [array] of departures
       depgroup.each do  |d|
         dep_time = d["expected_departure_time"] # TODO
-        wait = ''
-        printf ("    %-6s %-10s %-30s \n") ,
+        wait = timefromnow( dep_time )
+        printf ("    %-6s (%-7s) %-30s \n") ,
            dep_time, wait , d['direction']
       end
     end
