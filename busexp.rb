@@ -44,7 +44,10 @@ def print_depatures (dep)
       puts key    #  a line (normaly a busnumber)
       #pp depgroup #  an [array] of departures
       depgroup.each do  |d|
-        puts '    ' + d["expected_departure_time"]
+        dep_time = d["expected_departure_time"] # TODO
+        wait = ''
+        printf ("    %-6s %-10s %-30s \n") ,
+           dep_time, wait , d['direction']
       end
     end
     puts  # blank line between groups
