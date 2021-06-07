@@ -1,7 +1,5 @@
 #!/usr/bin/ruby
 
-#"name": "Elsie Road (Stop A)",
-# notes/bus_example-10-  "stop_name": "Elsie Road",
 
 require 'json'
 require 'time'
@@ -11,7 +9,7 @@ require 'pp'
 #-------------------------------------------------------------------------------
 def stop_name( dep )
   dep["name"]
-# # TODO:  also try  "stop_name": "Elsie Road",
+# TODO: "stop_name": "Elsie Road" might be an alternative
 end
 #-------------------------------------------------------------------------------
 def getDepartures( stopnum )
