@@ -1,5 +1,6 @@
 #!/usr/bin/ruby
 
+# TODO: Add a loop, limited to 10 mins say
 
 require 'json'
 require 'time'
