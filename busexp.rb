@@ -5,6 +5,7 @@ require 'json'
 require 'time'
 require 'httparty'
 require 'pp'
+require_relative "cred" # TODO: make option
 
 #-------------------------------------------------------------------------------
 def stop_name( dep )
@@ -19,7 +20,7 @@ def getDepartures( stopnum )
       'stop' ,
       stopnum ,
        ].join '/'
-  idkey="api_key=e007c65598b617695cdec19c8349656f&app_id=71b00a99"
+  idkey=get_key
 
   url = "http://transportapi.com/v3/uk/#{par}/live.json?#{idkey}"
 
