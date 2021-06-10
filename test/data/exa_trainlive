@@ -1,0 +1,196 @@
+{
+  "aburl": "https://transportapi.com/v3/uk/train/station/edw/live.json?app_id=71b00a99&app_key=e007c65598b617695cdec19c8349656f&calling_at=lbg&darwin=false&train_status=passenger"
+  "date": "2021-06-08",
+  "time_of_day": "16:15",
+  "request_time": "2021-06-08T16:15:49+01:00",
+  "station_name": "East Dulwich",
+  "station_code": "edw",
+  "departures": {
+    "all": [
+      {
+        "mode": "train",
+        "service": "24787000",
+        "train_uid": "W08273",
+        "platform": null,
+        "operator": "SN",
+        "operator_name": "Southern",
+        "aimed_departure_time": "16:23",
+        "aimed_arrival_time": "16:23",
+        "aimed_pass_time": null,
+        "origin_name": "Caterham",
+        "destination_name": "London Bridge",
+        "source": "Network Rail",
+        "category": "OO",
+        "service_timetable": {
+          "id": "https://transportapi.com/v3/uk/train/service/train_uid:W08273/2021-06-08/timetable.json?app_id=71b00a99&app_key=e007c65598b617695cdec19c8349656f&live=true"
+        },
+        "status": "LATE",
+        "expected_arrival_time": "16:40",
+        "expected_departure_time": "16:40",
+        "best_arrival_estimate_mins": 24,
+        "best_departure_estimate_mins": 24
+      },
+      {
+        "mode": "train",
+        "service": "24787000",
+        "train_uid": "Y87692",
+        "platform": null,
+        "operator": "SN",
+        "operator_name": "Southern",
+        "aimed_departure_time": "16:38",
+        "aimed_arrival_time": "16:38",
+        "aimed_pass_time": null,
+        "origin_name": "Beckenham Junction",
+        "destination_name": "London Bridge",
+        "source": "Network Rail",
+        "category": "OO",
+        "service_timetable": {
+          "id": "https://transportapi.com/v3/uk/train/service/train_uid:Y87692/2021-06-08/timetable.json?app_id=71b00a99&app_key=e007c65598b617695cdec19c8349656f&live=true"
+        },
+        "status": "ON TIME",
+        "expected_arrival_time": "16:38",
+        "expected_departure_time": "16:38",
+        "best_arrival_estimate_mins": 22,
+        "best_departure_estimate_mins": 22
+      },
+      {
+        "mode": "train",
+        "service": "24787000",
+        "train_uid": "W08277",
+        "platform": null,
+        "operator": "SN",
+        "operator_name": "Southern",
+        "aimed_departure_time": "16:53",
+        "aimed_arrival_time": "16:53",
+        "aimed_pass_time": null,
+        "origin_name": "Caterham",
+        "destination_name": "London Bridge",
+        "source": "Network Rail",
+        "category": "OO",
+        "service_timetable": {
+          "id": "https://transportapi.com/v3/uk/train/service/train_uid:W08277/2021-06-08/timetable.json?app_id=71b00a99&app_key=e007c65598b617695cdec19c8349656f&live=true"
+        },
+        "status": "LATE",
+        "expected_arrival_time": "16:53",
+        "expected_departure_time": "16:53",
+        "best_arrival_estimate_mins": 37,
+        "best_departure_estimate_mins": 37
+      },
+      {
+        "mode": "train",
+        "service": "24787000",
+        "train_uid": "Y87698",
+        "platform": null,
+        "operator": "SN",
+        "operator_name": "Southern",
+        "aimed_departure_time": "17:08",
+        "aimed_arrival_time": "17:08",
+        "aimed_pass_time": null,
+        "origin_name": "Beckenham Junction",
+        "destination_name": "London Bridge",
+        "source": "Network Rail",
+        "category": "OO",
+        "service_timetable": {
+          "id": "https://transportapi.com/v3/uk/train/service/train_uid:Y87698/2021-06-08/timetable.json?app_id=71b00a99&app_key=e007c65598b617695cdec19c8349656f&live=true"
+        },
+        "status": "ON TIME",
+        "expected_arrival_time": "17:08",
+        "expected_departure_time": "17:08",
+        "best_arrival_estimate_mins": 52,
+        "best_departure_estimate_mins": 52
+      },
+      {
+        "mode": "train",
+        "service": "24787000",
+        "train_uid": "W08280",
+        "platform": null,
+        "operator": "SN",
+        "operator_name": "Southern",
+        "aimed_departure_time": "17:23",
+        "aimed_arrival_time": "17:23",
+        "aimed_pass_time": null,
+        "origin_name": "Caterham",
+        "destination_name": "London Bridge",
+        "source": "Network Rail",
+        "category": "OO",
+        "service_timetable": {
+          "id": "https://transportapi.com/v3/uk/train/service/train_uid:W08280/2021-06-08/timetable.json?app_id=71b00a99&app_key=e007c65598b617695cdec19c8349656f&live=true"
+        },
+        "status": "ON TIME",
+        "expected_arrival_time": "17:23",
+        "expected_departure_time": "17:23",
+        "best_arrival_estimate_mins": 67,
+        "best_departure_estimate_mins": 67
+      },
+      {
+        "mode": "train",
+        "service": "24787000",
+        "train_uid": "Y87704",
+        "platform": null,
+        "operator": "SN",
+        "operator_name": "Southern",
+        "aimed_departure_time": "17:38",
+        "aimed_arrival_time": "17:38",
+        "aimed_pass_time": null,
+        "origin_name": "Beckenham Junction",
+        "destination_name": "London Bridge",
+        "source": "Network Rail",
+        "category": "OO",
+        "service_timetable": {
+          "id": "https://transportapi.com/v3/uk/train/service/train_uid:Y87704/2021-06-08/timetable.json?app_id=71b00a99&app_key=e007c65598b617695cdec19c8349656f&live=true"
+        },
+        "status": "ON TIME",
+        "expected_arrival_time": "17:38",
+        "expected_departure_time": "17:38",
+        "best_arrival_estimate_mins": 82,
+        "best_departure_estimate_mins": 82
+      },
+      {
+        "mode": "train",
+        "service": "24787000",
+        "train_uid": "W08283",
+        "platform": null,
+        "operator": "SN",
+        "operator_name": "Southern",
+        "aimed_departure_time": "17:53",
+        "aimed_arrival_time": "17:53",
+        "aimed_pass_time": null,
+        "origin_name": "Caterham",
+        "destination_name": "London Bridge",
+        "source": "Network Rail",
+        "category": "OO",
+        "service_timetable": {
+          "id": "https://transportapi.com/v3/uk/train/service/train_uid:W08283/2021-06-08/timetable.json?app_id=71b00a99&app_key=e007c65598b617695cdec19c8349656f&live=true"
+        },
+        "status": "ON TIME",
+        "expected_arrival_time": "17:53",
+        "expected_departure_time": "17:53",
+        "best_arrival_estimate_mins": 97,
+        "best_departure_estimate_mins": 97
+      },
+      {
+        "mode": "train",
+        "service": "24787000",
+        "train_uid": "W08148",
+        "platform": null,
+        "operator": "SN",
+        "operator_name": "Southern",
+        "aimed_departure_time": "18:08",
+        "aimed_arrival_time": "18:08",
+        "aimed_pass_time": null,
+        "origin_name": "Beckenham Junction",
+        "destination_name": "London Bridge",
+        "source": "Network Rail",
+        "category": "OO",
+        "service_timetable": {
+          "id": "https://transportapi.com/v3/uk/train/service/train_uid:W08148/2021-06-08/timetable.json?app_id=71b00a99&app_key=e007c65598b617695cdec19c8349656f&live=true"
+        },
+        "status": "ON TIME",
+        "expected_arrival_time": "18:08",
+        "expected_departure_time": "18:08",
+        "best_arrival_estimate_mins": 112,
+        "best_departure_estimate_mins": 112
+      }
+    ]
+  }
+}
