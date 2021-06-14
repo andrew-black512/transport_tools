@@ -2,8 +2,10 @@ require_relative "timeutil.rb"
 
 def testtime ( n )
   puts
-  puts n
-  puts timefromnow( (Time.now + n ).strftime("%H:%M:%S") )
+  puts Time.now.strftime("%H:%M:%S")
+  ftime = (Time.now + n ).strftime("%H:%M")
+  puts ftime
+  puts timefromnow( ftime )
 end
 testtime +61
 testtime +1
