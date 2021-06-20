@@ -68,8 +68,8 @@ def print_depatures (dep)
            wait ,
            d['direction'] , d['operator']
       end
+      puts  # blank line between groups
     end
-    puts  # blank line between groups
   end
 end
 
@@ -82,3 +82,4 @@ ARGV.each do |s|
   stop = get_stopname( s )
   print_depatures ( getDepartures  stop)
 end
+puts "end"  ## TODO: better in calling file.....
