@@ -34,6 +34,20 @@ def getDepartures( stopnum )
 
   return trasport_data
 end
+def get_dep_time ( d )
+  case
+  when d[ 'expected_departure_time' ]
+    d[ 'expected_departure_time' ]
+  when d[ 'aimed_departure_time' ]
+    d[ 'aimed_departure_time' ]
+  else
+    ''
+  end
+end
+###     sprintf "%-5s t%-3s ",
+#      d[ 'expected_departure_time' ] ,
+#      d[ 'aimed_departure_time' ] [3,5]
+
 
 def print_depatures (dep)
   puts stop_name( dep )
