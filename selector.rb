@@ -4,6 +4,10 @@ class Selector
   def initialize( query_string)
     ## TODO: remember the seperator (how?)
     (@stop, @wanted_bus ) = query_string.split /[:^]/
+    boring_buses = %w/P13 42/
+    boring_buses.each do |x|
+      @selector [x] = false
+    end
   end
   def stop_name
     @stop
