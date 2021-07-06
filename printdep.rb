@@ -24,6 +24,18 @@ def get_dep_time ( d )
     ''
   end
 end
+#-------------------------------------------------------------------------------
+def get_destination ( d )
+  case
+  when d[ 'destination_name' ]
+    d[ 'destination_name' ]
+  when d[ 'direction' ]
+    d[ 'direction' ]
+  else
+    ''
+  end
+end
+#-------------------------------------------------------------------------------
 
 def print_depatures (dep)
   puts stop_name( dep )
@@ -38,7 +50,7 @@ def print_depatures (dep)
         dep_time = get_dep_time (d) ###["expected_departure_time"] # TODO
         wait = timefromnow( dep_time )
         printf ("    %-6s (%-7s) %-30s %-10s\n") ,
-           dep_time, wait , d['direction'] , d['operator']
+           dep_time, wait , get_destination(d) , d['operator']
       end
       puts  # blank line between groups
     end
