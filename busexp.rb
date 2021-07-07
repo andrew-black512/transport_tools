@@ -82,4 +82,6 @@ ARGV.each do |s|
   stop = get_stopname( s )
   print_depatures ( getDepartures  stop)
 end
-puts "end"  ## TODO: better in calling file.....
+puts "end"  #
+# TODO: produce error (warning) if no valid buses found.
+# (looks as though program has hung)
