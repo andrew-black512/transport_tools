@@ -20,8 +20,8 @@ end
 def getDepartures( stopnum )
 
   par= [
-  	  'bus' ,
-      'stop' ,
+  	  # 'bus/stop' ,    #TODO parame train v bus
+      'train/station' ,
       stopnum ,
        ].join '/'
   idkey=get_key
