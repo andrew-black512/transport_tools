@@ -14,7 +14,7 @@ def stop_name( dep )
 # TODO: "stop_name": "Elsie Road" might be an alternative
 end
 #-------------------------------------------------------------------------------
-def get_dep_time ( d )
+def get_dep_time ( d )   # TODO is this used
   case
   when d[ 'expected_departure_time' ]
     d[ 'expected_departure_time' ]
