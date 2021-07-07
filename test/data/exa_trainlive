@@ -1,5 +1,4 @@
 {
-  "aburl": "https://transportapi.com/v3/uk/train/station/edw/live.json?app_id=71b00a99&app_key=e007c65598b617695cdec19c8349656f&calling_at=lbg&darwin=false&train_status=passenger"
   "date": "2021-06-08",
   "time_of_day": "16:15",
   "request_time": "2021-06-08T16:15:49+01:00",
