@@ -12,7 +12,7 @@ end
 # maybe only arrivale or detparture (eg LBG dep only is intersteomg)
 @station_platform = {
     'LBG' => 1,
-		'PUR' => 1, # useful for CAT/TAT trains
+    'PUR' => 1, # useful for CAT/TAT trains
     'ECR' => 1,
     'DMK' => 1,
     'SUO' => 1,
