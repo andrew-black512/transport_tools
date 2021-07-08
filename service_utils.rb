@@ -18,7 +18,11 @@ end
     'SUO' => 1,
     'VIC' => 1,
     'BTN' => 1,
+    'BFR' => 1,
+    'BMS' => 1,
+    'GTW' => 1,
     'EPH' => 1,   # elephant
+
 
 }
 # TODO  station_walk_time is not used
