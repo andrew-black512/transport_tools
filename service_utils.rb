@@ -78,6 +78,7 @@ def get_note( stops )
       note += ' TAT?'
 		when	'PUR'
 			## TODO: better was of DEFINED-OR?
+			## TODO calc the dwell at purley
 			note += ' ' + 	st['aimed_arrival_time']  if st['aimed_arrival_time']
 			note += ' ' + 	st['aimed_departure_time'] if st['aimed_departure_time']
 		end
