@@ -101,7 +101,7 @@ end
 
 #---------------------------------------------------------------------------
 
-def get_eng_weekends( options)
+def get_eng_sequence( options)
 region = :gb_eng
 # This is a workround. It doesnt seem to want to load :gb_eng unless already read :gb
 ## Date.today.holiday?(:gb) #  bodge
@@ -190,7 +190,7 @@ ARGV.each do |a|
   options[:journeylist].push Journey.new( a.split ":" )
 end
 begin
-  get_eng_weekends( options )
+  get_eng_sequence( options )
 rescue Interrupt  => e
   puts ''
 end
