@@ -97,6 +97,7 @@ def getDeptOneDay( day, options )
         puts 'Bad option'
     end
   end
+  puts  # blank line at end of this day
 end
 
 #---------------------------------------------------------------------------
