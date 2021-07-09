@@ -111,7 +111,7 @@ day = options[:date]
 done_separator = false
 numdays = options[:numdays]
 (1..numdays).each do |n|
-   if options[:weekend] || day.nonworkday?(region)
+   if options[:workday] || day.nonworkday?(region)
       getDeptOneDay( day, options ) ;
       done_separator = false
    else
@@ -138,7 +138,7 @@ options = {
 
     :date => Date.today,
     :time => Time.now ,
-    :weekend => true ,
+    :workday => true ,
     :format => 'd'
 }
 OptionParser.new do |opts|
@@ -158,11 +158,11 @@ OptionParser.new do |opts|
    opts.on("-t","--time DATE", Time, "specify time " ) do |time|
       options[:time] = time
    end
-   opts.on("-w", "--[no-]weekend", "Include weekdays") do |v|
-       options[:weekend] = v
+   opts.on("-w", "-s-[no-]workday", "Include weekdays") do |v|
+       options[:workday] = v
    end
    opts.on("-n","--numdays NUM",Integer, "number of days",
-       "counts both weekend and weekday",
+       "counts both workday and weekday",
        "TODO - this is confusng, better to count number printed" ) do |numdays|
       options[:numdays] = numdays
    end
