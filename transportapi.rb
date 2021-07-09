@@ -13,10 +13,10 @@ class TransportAPI
 
   def timetabletimes( fromstation, day, time )
       parstring = [
-  	  fromstation,
-  	  day.strftime("%Y-%m-%d") ,
-  	  time.strftime("%H:%M"),    #TODO
-  	  'timetable.json'
+      fromstation,
+      day.strftime("%Y-%m-%d") ,
+      time.strftime("%H:%M"),    #TODO
+      'timetable.json'
        ].join '/'
        puts parstring
        self.class.get("/station/" + parstring, @options)
@@ -33,9 +33,9 @@ class TransportAPI
   #  Note may want to speficy        @options ['station_code'] = 'ECR'
   def service( servicenumber, day )
       parstring = [
-  	  'train_uid:' + servicenumber,
-  	  day.strftime("%Y-%m-%d") ,
-  	  'timetable.json'
+      'train_uid:' + servicenumber,
+      day.strftime("%Y-%m-%d") ,
+      'timetable.json'
        ].join '/'
        self.class.get("/service/" + parstring, @options)
   end
