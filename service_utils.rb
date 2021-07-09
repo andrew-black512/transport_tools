@@ -3,9 +3,9 @@ require_relative 'lib/timeutil'
 
 # returns departure (if appropriate) or arrival time for a stop
 def get_time( stop)
-	stop['aimed_departure_time'] ?
-		stop['aimed_departure_time'] :
-		stop['aimed_arrival_time'] + "a"
+    stop['aimed_departure_time'] ?
+        stop['aimed_departure_time'] :
+        stop['aimed_arrival_time'] + "a"
 end
 
 # TODO - get this from a config file / command option
@@ -57,68 +57,68 @@ def extract_times_col_head(  wanted, format )
     puts ''
 end
 def print_start_dest(stops)
-	  #could be done in colour (terminal or html)
+      #could be done in colour (terminal or html)
     printf " ( %s -> %s)",
-    	stops.first[ "station_code"].downcase ,
-	    stops.last[ "station_code"].downcase
+        stops.first[ "station_code"].downcase ,
+        stops.last[ "station_code"].downcase
 end
 def print_leave_time( station, timestr )
-	  leave_time = @station_walk_time[station]
-	  leave_time_str = leave_time ?
-	  	  addmins( timestr,  -leave_time ) : ''
+      leave_time = @station_walk_time[station]
+      leave_time_str = leave_time ?
+          addmins( timestr,  -leave_time ) : ''
     printf $format, leave_time_str
 end
 #----------------------------------------------------------
 def get_note( stops )
-	## pp stops
-	note = ''
-	stops.each do |st|
-		case st["station_code"]
-		when	'PUO'
+    ## pp stops
+    note = ''
+    stops.each do |st|
+        case st["station_code"]
+        when	'PUO'
       note += ' TAT?'
-		when	'PUR'
-			## TODO: better was of DEFINED-OR?
-			## TODO calc the dwell at purley
-			note += ' ' + 	st['aimed_arrival_time']  if st['aimed_arrival_time']
-			note += ' ' + 	st['aimed_departure_time'] if st['aimed_departure_time']
-		end
-	end
-	return note
-	#####exit
+        when	'PUR'
+            ## TODO: better was of DEFINED-OR?
+            ## TODO calc the dwell at purley
+            note += ' ' + 	st['aimed_arrival_time']  if st['aimed_arrival_time']
+            note += ' ' + 	st['aimed_departure_time'] if st['aimed_departure_time']
+        end
+    end
+    return note
+    #####exit
 end
 #----------------------------------------------------------
 def extract_times_col( stops, wanted, format )
     stophash = {}       # hask of stops for this train
     stops.each do |st|
-    	#pp st
-    	plat= get_platform(st)
-    	stophash [st["station_code"]] = get_time( st) + plat
+        #pp st
+        plat= get_platform(st)
+        stophash [st["station_code"]] = get_time( st) + plat
     end
-		note = get_note stops
-		if format == 'k'  # keyed format
-			$format= '%-12s' # # TODO: bodge?
-			#pp wanted.first
-			print_leave_time( wanted.first, stophash[wanted.first] )
-			wanted.each do |want_station|
-    	  stoptime = stophash [ want_station ]
-				## TODO: what if not stopping. nothing or EDW:-
-				## then change format
+        note = get_note stops
+        if format == 'k'  # keyed format
+            $format= '%-12s' # # TODO: bodge?
+            #pp wanted.first
+            print_leave_time( wanted.first, stophash[wanted.first] )
+            wanted.each do |want_station|
+          stoptime = stophash [ want_station ]
+                ## TODO: what if not stopping. nothing or EDW:-
+                ## then change format
         printf $format, stoptime ? want_station+' '+stoptime : "  "
       end
-			print_start_dest stops
-		else
+            print_start_dest stops
+        else
       printf $format,  stops.first["station_code"]
       wanted.each do |want_station|
-    	  stoptime = stophash [ want_station ]
+          stoptime = stophash [ want_station ]
         printf $format, stoptime ? stoptime : "  -"
       end
     if format == 'd'
         printf $format,  stops.last["station_code"] + note
     else # 'e'
-			  # lists all stops e=excruciating ...
+              # lists all stops e=excruciating ...
         printf "  %s", join_element( stops, "station_code",  '-')
     end
-	end
+    end
 
     puts ''  # Final newline
 end
@@ -149,5 +149,5 @@ end
 
 # returns the join of selected element in Hash - in this case "station_code"
 def join_element( hash, element, join_with )
-	hash.map { |t| t[element] }. join (join_with)
+    hash.map { |t| t[element] }. join (join_with)
 end
