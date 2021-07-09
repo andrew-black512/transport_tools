@@ -162,8 +162,8 @@ OptionParser.new do |opts|
        options[:weekend] = v
    end
    opts.on("-n","--numdays NUM",Integer, "number of days",
-       "both weekend and weekday",
-       "TODO - this is confusng" ) do |numdays|
+       "counts both weekend and weekday",
+       "TODO - this is confusng, better to count number printed" ) do |numdays|
       options[:numdays] = numdays
    end
 
