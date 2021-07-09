@@ -49,7 +49,7 @@ end
 $format = '%-9s'  # TODO - make 6 when no platform
 def extract_times_col_head(  wanted, format )
     printf $format, 'Toc' ;
-    printf $format, 'from' ;
+    printf $format, 'leave' ;
 
     wanted.each do |wanted_station_code|
         printf $format, ' '+wanted_station_code
@@ -63,8 +63,10 @@ def print_start_dest(stops)
 	    stops.last[ "station_code"].downcase
 end
 def print_leave_time( station, timestr )
-	  leave_time = addmins( timestr,  - @station_walk_time[station] )
-    printf $format, leave_time
+	  leave_time = @station_walk_time[station]
+	  leave_time_str = leave_time ?
+	  	  addmins( timestr,  -leave_time ) : ''
+    printf $format, leave_time_str
 end
 #----------------------------------------------------------
 def get_note( stops )
