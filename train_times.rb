@@ -25,9 +25,9 @@ end
 def getDepartures( par_from, par_to, day ,time )
 
   par= [
-  	  par_from ,
-  	  day.strftime("%Y-%m-%d") ,
-  	  time.strftime("%H:%M") ,
+      par_from ,
+      day.strftime("%Y-%m-%d") ,
+      time.strftime("%H:%M") ,
        ].join '/'
   par2="calling_at=#{par_to}"
   limit="" # "limit=1&"
@@ -62,11 +62,11 @@ def getDeptOneDay( day, options )
     when 'g'
       pp departures if diagnostics
       departures_group = departures
-      	      .select { |dep| /^12/ =~ dep["aimed_departure_time"] }
-      	      .group_by { |d| d["destination_name"] }.sort
+              .select { |dep| /^12/ =~ dep["aimed_departure_time"] }
+              .group_by { |d| d["destination_name"] }.sort
       departures_group.each do |stat, train_list|
-    	dep_times = train_list.map{|x| x["aimed_departure_time"] [3..4] }
-    	     .join(" ")
+        dep_times = train_list.map{|x| x["aimed_departure_time"] [3..4] }
+             .join(" ")
         printf "    %-30s %2d %-10s %-30s\n", stat, train_list.count,
              train_list[0]["mode"], dep_times
       end
@@ -84,7 +84,7 @@ def getDeptOneDay( day, options )
        # TODO - default, do any shell scripts reply on it.
        mode = departures.length==0 ? 'none' : departures[0]["mode"]
        departures.each do |dep|
-       	 dispmode = dep['mode'] == 'train' ? '' : dep['mode']
+         dispmode = dep['mode'] == 'train' ? '' : dep['mode']
          printf "    %-10s %-3s %-3s  %-20s > %-20s\n",
            dep["aimed_departure_time"] ,
            dispmode ,
@@ -134,10 +134,10 @@ end
 #---------------------------------------------------------------------------
 options = {
         :journeylist => [],      # list of journey options
-	:numdays => 1 ,
+    :numdays => 1 ,
 
-	:date => Date.today,
-	:time => Time.now ,
+    :date => Date.today,
+    :time => Time.now ,
     :weekend => true ,
     :format => 'd'
 }
@@ -162,17 +162,18 @@ OptionParser.new do |opts|
        options[:weekend] = v
    end
    opts.on("-n","--numdays NUM",Integer, "number of days",
-   	   "both weekend and weekday",
-   	   "TODO - is this confusng" ) do |numdays|
+       "both weekend and weekday",
+       "TODO - this is confusng" ) do |numdays|
       options[:numdays] = numdays
    end
 
    opts.on("-f","--format FORMAT",
-   	   "print format format",
-   	   "   l - list trains (default)",
-   	   "   g - group",
-   	   "   d - details "
-   	   ) do |format|
+       "print format format",
+       "   l - list trains (default)",
+       "   g - group",
+       "   d - details ",
+       "   k - keyed : including leave time and notes",
+       ) do |format|
       options[:format] = format
    end
    opts.on("-v", "--[no-]verbose", "Run verbosely") do |v|
