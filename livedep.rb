@@ -9,11 +9,6 @@ require_relative 'printdep.rb'
 require_relative "cred" # TODO: make option
 
 #-------------------------------------------------------------------------------
-def stop_name( dep )
-  dep["name"]
-# TODO: "stop_name": "Elsie Road" might be an alternative
-end
-#-------------------------------------------------------------------------------
 def getDepartures( stopnum )
 
   par= [
