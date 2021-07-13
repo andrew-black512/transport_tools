@@ -28,15 +28,19 @@ def getDepartures( stopnum )
 
   return trasport_data
 end
+#-------------------------------------------------------------------------------
 
 
 def get_stopname( textname) # TODO: rename
   # '490006526A'
   textname # TODO: translate as needed
 end
+#-------------------------------------------------------------------------------
 
+mode = ARGV.shift
 ARGV.each do |s|
   stop = get_stopname( s )
+  #-------------------------------------------------------------------------------
   print_depatures ( getDepartures  stop)
 end
 puts "end"  #
