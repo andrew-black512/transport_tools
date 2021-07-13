@@ -40,7 +40,6 @@ end
 mode = ARGV.shift
 ARGV.each do |s|
   stop = get_stopname( s )
-  #-------------------------------------------------------------------------------
   print_depatures ( getDepartures  stop)
 end
 puts "end"  #
