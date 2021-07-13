@@ -9,16 +9,12 @@ require_relative 'printdep.rb'
 require_relative "cred" # TODO: make option
 
 #-------------------------------------------------------------------------------
-def getDepartures( stopnum )
+def getDepartures( mode, stopnum )
 
-  par= [
-  	  # 'bus/stop' ,    #TODO parame train v bus
-      'train/station' ,
-      stopnum ,
-       ].join '/'
+  par = mode == 't' ? 'train/station' : 'bus/stop'
   idkey=get_key
 
-  url = "http://transportapi.com/v3/uk/#{par}/live.json?#{idkey}"
+  url = "http://transportapi.com/v3/uk/#{par}/#{stopnum}/live.json?#{idkey}"
   #puts url
 
   response = HTTParty.get(URI.parse(url))
@@ -40,7 +36,7 @@ end
 mode = ARGV.shift
 ARGV.each do |s|
   stop = get_stopname( s )
-  print_depatures ( getDepartures  stop)
+  print_depatures ( getDepartures( mode, stop) )
 end
 puts "end"  #
 # TODO: produce error (warning) if no valid buses found.
