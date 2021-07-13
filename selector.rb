@@ -21,6 +21,7 @@ class Selector
   end
 
 end
+#!-------------------------------------------------------------------
 #-- for test
 
 def seltest(string)
