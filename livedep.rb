@@ -3,13 +3,10 @@
 # TODO: Add a loop, limited to 10 mins say
 
 require 'json'
-require 'time'
 require 'httparty'
-require 'pp'
 
 require_relative 'printdep.rb'
 require_relative "cred" # TODO: make option
-require_relative 'lib/timeutil'
 
 #-------------------------------------------------------------------------------
 def stop_name( dep )
