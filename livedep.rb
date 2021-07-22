@@ -11,11 +11,19 @@ require_relative "cred" # TODO: make option
 #-------------------------------------------------------------------------------
 def getDepartures( mode, stopnum )
 
+  (stop,tostop) = stopnum.split ':'
+  case
+  when tostop.nil?
+    extra = ''
+  else
+    extra = "&calling_at=#{tostop}"
+  end
+  puts "extra: #{extra}"
   par = mode == 't' ? 'train/station' : 'bus/stop'
   idkey=get_key
-  extra = '&calling_at=LBG&to_offset=PT04:00:00'
+  # extra = '&calling_at=LBG&to_offset=PT04:00:00'
 
-  url = "http://transportapi.com/v3/uk/#{par}/#{stopnum}/live.json?#{idkey}#{extra}"
+  url = "http://transportapi.com/v3/uk/#{par}/#{stop}/live.json?#{idkey}#{extra}"
   #puts url
 
   response = HTTParty.get(URI.parse(url))
