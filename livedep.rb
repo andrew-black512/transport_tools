@@ -13,8 +13,9 @@ def getDepartures( mode, stopnum )
 
   par = mode == 't' ? 'train/station' : 'bus/stop'
   idkey=get_key
+  extra = '&calling_at=LBG&to_offset=PT04:00:00'
 
-  url = "http://transportapi.com/v3/uk/#{par}/#{stopnum}/live.json?#{idkey}"
+  url = "http://transportapi.com/v3/uk/#{par}/#{stopnum}/live.json?#{idkey}#{extra}"
   #puts url
 
   response = HTTParty.get(URI.parse(url))
