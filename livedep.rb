@@ -9,12 +9,12 @@ require_relative 'printdep.rb'
 require_relative "cred" # TODO: make option
 
 #-------------------------------------------------------------------------------
-def getDepartures( mode, stopnum )
+def getDepartures( mode, stop_descript )
   # This is aiming to be the same for train/bus - word "stop" can include "station"
 
 
-  # stopnum is FROM:<dest> 
-  (stop,tostop) = stopnum.split ':'
+  # stop_descript is FROM:<dest>
+  (stop,tostop) = stop_descript.split ':'
   case
     when tostop.nil?
       extra = ''
