@@ -10,14 +10,18 @@ require_relative "cred" # TODO: make option
 
 #-------------------------------------------------------------------------------
 def getDepartures( mode, stopnum )
+  # This is aiming to be the same for train/bus - word "stop" can include "station"
 
+
+  # stopnum is FROM:<dest> 
   (stop,tostop) = stopnum.split ':'
   case
-  when tostop.nil?
-    extra = ''
-  else
-    extra = "&calling_at=#{tostop}"
+    when tostop.nil?
+      extra = ''
+    else
+      extra = "&calling_at=#{tostop}"
   end
+
   puts "extra: #{extra}"
   par = mode == 't' ? 'train/station' : 'bus/stop'
   idkey=get_key
