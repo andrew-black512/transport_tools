@@ -16,6 +16,7 @@ def getDepartures( mode, stop_descript )
   # stop_descript is FROM:<dest>
   (stop,tostop) = stop_descript.split ':'
   case
+    #TODO maybe make .nil? the else condition
     when tostop.nil?
       extra = ''
     else
