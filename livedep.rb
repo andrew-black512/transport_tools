@@ -14,7 +14,7 @@ def getDepartures( mode, stop_descript )
 
 
   # stop_descript is FROM:<dest>
-  (stop,tostop) = stop_descript.split ':'
+  (from_stop,tostop) = stop_descript.split ':'
   case
     #TODO maybe make .nil? the else condition
     when tostop.nil?
@@ -28,7 +28,7 @@ def getDepartures( mode, stop_descript )
   idkey=get_key
   # extra = '&calling_at=LBG&to_offset=PT04:00:00'
 
-  url = "http://transportapi.com/v3/uk/#{par}/#{stop}/live.json?#{idkey}#{extra}"
+  url = "http://transportapi.com/v3/uk/#{par}/#{from_stop}/live.json?#{idkey}#{extra}"
   #puts url
 
   response = HTTParty.get(URI.parse(url))
