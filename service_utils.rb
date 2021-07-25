@@ -72,6 +72,11 @@ end
 def get_note( stops )
     ## pp stops
     note = ''
+    first_stop = stops.first
+    # Trains actaully starting at PUR do so from P5
+    if first_stop['station_code'] == 'PUR' && first_stop['platform'] == '5'
+      note += ' Shuttle'
+    end
     stops.each do |st|
         case st["station_code"]
         # These 2 algorithms are deprecated!
