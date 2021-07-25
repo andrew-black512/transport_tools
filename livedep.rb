@@ -9,21 +9,26 @@ require_relative 'printdep.rb'
 require_relative "cred" # TODO: make option
 
 #-------------------------------------------------------------------------------
-def getDepartures( mode, stopnum )
+def getDepartures( mode, stop_descript )
+  # This is aiming to be the same for train/bus - word "stop" can include "station"
 
-  (stop,tostop) = stopnum.split ':'
+
+  # stop_descript is FROM:<dest>
+  (from_stop,tostop) = stop_descript.split ':'
   case
-  when tostop.nil?
-    extra = ''
-  else
-    extra = "&calling_at=#{tostop}"
+    #TODO maybe make .nil? the else condition
+    when tostop.nil?
+      extra = ''
+    else
+      extra = "&calling_at=#{tostop}"
   end
+
   puts "extra: #{extra}"
   par = mode == 't' ? 'train/station' : 'bus/stop'
   idkey=get_key
   # extra = '&calling_at=LBG&to_offset=PT04:00:00'
 
-  url = "http://transportapi.com/v3/uk/#{par}/#{stop}/live.json?#{idkey}#{extra}"
+  url = "http://transportapi.com/v3/uk/#{par}/#{from_stop}/live.json?#{idkey}#{extra}"
   #puts url
 
   response = HTTParty.get(URI.parse(url))
