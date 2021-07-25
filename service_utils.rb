@@ -74,13 +74,15 @@ def get_note( stops )
     note = ''
     stops.each do |st|
         case st["station_code"]
+        # These 2 algorithms are deprecated!
         when	'PUO'
-      note += ' TAT?'
+            # deprecated theory that PUO trains split (they often do)
+            #note += ' TAT?'
         when	'PUR'
             ## TODO: better was of DEFINED-OR?
             ## TODO calc the dwell at purley
-            note += ' ' + 	st['aimed_arrival_time']  if st['aimed_arrival_time']
-            note += ' ' + 	st['aimed_departure_time'] if st['aimed_departure_time']
+            #note += ' ' + 	st['aimed_arrival_time']  if st['aimed_arrival_time']
+            #note += ' ' + 	st['aimed_departure_time'] if st['aimed_departure_time']
         end
     end
     return note
