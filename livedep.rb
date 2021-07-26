@@ -46,7 +46,7 @@ def get_stopname( textname) # TODO: rename
   textname # TODO: translate as needed
 end
 #-------------------------------------------------------------------------------
-
+puts "some temp diags"
 mode = ARGV.shift
 ARGV.each do |s|
   stop = get_stopname( s )
