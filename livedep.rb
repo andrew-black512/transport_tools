@@ -50,6 +50,7 @@ puts "some temp diags"
 mode = ARGV.shift
 ARGV.each do |s|
   stop = get_stopname( s )
+  # TODO: change stopename spelling to match printdep
   print_depatures ( getDepartures( mode, stop) )
 end
 puts "end"  #
