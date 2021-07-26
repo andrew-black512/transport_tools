@@ -40,14 +40,21 @@ def getDepartures( mode, stop_descript )
 end
 #-------------------------------------------------------------------------------
 
-
 def get_stopname( textname) # TODO: rename
   # '490006526A'
   textname # TODO: translate as needed
 end
 #-------------------------------------------------------------------------------
 puts "some temp diags"
-mode = ARGV.shift
+mode = ARGV.shift.downcase
+case mode
+
+when /^[tb]/
+else
+  puts "help"
+  exit
+
+end
 ARGV.each do |s|
   stop = get_stopname( s )
   # TODO: change stopename spelling to match printdep
