@@ -48,11 +48,10 @@ end
 puts "some temp diags"
 mode = ARGV.shift.downcase
 case mode
-
-when /^[tb]/
-else
-  puts "help"
-  exit
+  when /^[tb]/
+  else
+    puts "help"
+    exit
 
 end
 ARGV.each do |s|
