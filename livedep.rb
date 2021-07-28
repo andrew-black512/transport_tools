@@ -11,7 +11,7 @@ require_relative "cred" # TODO: make option
 #-------------------------------------------------------------------------------
 def getDepartures( mode, stop_descript )
   # This is aiming to be the same for train/bus - word "stop" can include "station"
-
+  diagnostics = false ## TODO: make configarble
 
   # stop_descript is FROM:<dest>
   (from_stop,tostop) = stop_descript.split ':'
@@ -23,7 +23,7 @@ def getDepartures( mode, stop_descript )
       extra = "&calling_at=#{tostop}"
   end
 
-  puts "extra: #{extra}"
+  puts "extra: #{extra}" if diagnostics
   par = mode == 't' ? 'train/station' : 'bus/stop'
   idkey=get_key
   # extra = '&calling_at=LBG&to_offset=PT04:00:00'
