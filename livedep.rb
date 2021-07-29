@@ -49,11 +49,24 @@ def get_stopname( textname) # TODO: rename
   textname # TODO: translate as needed
 end
 #-------------------------------------------------------------------------------
+def helptext
+  puts "Running #{__dir__}"
+  #system 'git show -s --format="%ad = %B" '
+  puts <<EOS
+
+     ./livedep.rb <mode>   station:station
+
+     <mode> is either  "t" - train or "b" bus
+
+EOS
+end
+
+#-------------------------------------------------------------------------------
 mode = ARGV.shift.downcase
 case mode
   when /^[tb]/
   else
-    puts "help"
+    helptext
     exit
 
 end
