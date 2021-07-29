@@ -32,6 +32,10 @@ def getDepartures( mode, stop_descript )
   #puts url
 
   response = HTTParty.get(URI.parse(url))
+  if err = response['error']
+    puts "ERROR: #{err}"
+    exit
+  end
   #puts response.body.to_s
   trasport_data = JSON::parse(response.body)
   ## pp trasport_data
