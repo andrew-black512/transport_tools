@@ -62,14 +62,15 @@ EOS
 end
 
 #-------------------------------------------------------------------------------
-mode = ARGV.shift.downcase
+mode = ARGV.shift
 case mode
-  when /^[tb]/
+  when /^[tb]/i
   else
     helptext
     exit
-
 end
+mode = mode.downcase
+
 ARGV.each do |s|
   stop = get_stopname( s )
   # TODO: change stopename spelling to match printdep
