@@ -12,7 +12,6 @@ all_formats
 at.rb
 irbl.sh
 kbb
-livehelp.rb
 local.sh
 notes/
 spec/
