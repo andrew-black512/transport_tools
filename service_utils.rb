@@ -50,8 +50,8 @@ end
 
 $format = '%-9s'  # TODO - make 6 when no platform
 def extract_times_col_head(  wanted, format )
-    printf $format, 'Toc' ;
-    printf $format, 'leave' ;
+	printf $format, 'Toc' ;
+	printf $format, 'leave' ;  ## TODO-U: only if keyed
 
 	wanted.each do |wanted_station_code|
 		printf $format, ' '+wanted_station_code
