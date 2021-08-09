@@ -4,3 +4,19 @@ extract
 test/test_in_progress/
 update-stable.sh
 abdoc/
+
+#Following may be wanted, but check one by one
+.rspec
+TODO.txt
+all_formats
+at.rb
+irbl.sh
+kbb
+local.sh
+notes/
+spec/
+test
+   # some are "official". some abit ad hoc
+todo
+todo.csv
+

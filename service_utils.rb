@@ -21,6 +21,8 @@ end
     'BFR' => 1,
     'BMS' => 1,
     'GTW' => 1,
+    'CLJ' => 1,
+    'WIM' => 1,
     'EPH' => 1,   # elephant
 
 
