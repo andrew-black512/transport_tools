@@ -17,9 +17,9 @@ class Different
 end
 def t
   d= Different.new
-  put d.different 1
-  put d.different 1
-  put d.different 2
-  put d.different 1
+  puts d.different 1
+  puts d.different 1
+  puts d.different 2
+  puts d.different 1
 
 end
