@@ -2,12 +2,14 @@ class Different
   attr :previous   # array of 2 stations
 
   def initialize(  )
-     @stat_list = stat_list.map { |s| s.upcase }
   end
 
   def different( v )
-     r = previous && ( previous != v )
+     r = (@previous !=nil) && ( @previous != v )
 
+     puts "#{v} #{r}"
+     @previous = v
+     return r
   end
 
 
