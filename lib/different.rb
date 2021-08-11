@@ -7,7 +7,6 @@ class Different
   def different( v )
      r = (@previous !=nil) && ( @previous != v )
 
-     puts "#{v} #{r}"
      @previous = v
      return r
   end
