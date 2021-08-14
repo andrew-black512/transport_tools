@@ -11,7 +11,7 @@ require_relative "cred" # TODO: make option
 #-------------------------------------------------------------------------------
 def getDepartures( mode, stop_descript )
   # This is aiming to be the same for train/bus - word "stop" can include "station"
-
+  diagnostics = false ## TODO: make configarble
 
   # stop_descript is FROM:<dest>
   (from_stop,tostop) = stop_descript.split ':'
@@ -23,7 +23,7 @@ def getDepartures( mode, stop_descript )
       extra = "&calling_at=#{tostop}"
   end
 
-  puts "extra: #{extra}"
+  puts "extra: #{extra}" if diagnostics
   par = mode == 't' ? 'train/station' : 'bus/stop'
   idkey=get_key
   # extra = '&calling_at=LBG&to_offset=PT04:00:00'
@@ -32,6 +32,10 @@ def getDepartures( mode, stop_descript )
   #puts url
 
   response = HTTParty.get(URI.parse(url))
+  if err = response['error']
+    puts "ERROR: #{err}"
+    exit
+  end
   #puts response.body.to_s
   trasport_data = JSON::parse(response.body)
   ## pp trasport_data
@@ -40,16 +44,36 @@ def getDepartures( mode, stop_descript )
 end
 #-------------------------------------------------------------------------------
 
-
 def get_stopname( textname) # TODO: rename
   # '490006526A'
   textname # TODO: translate as needed
 end
 #-------------------------------------------------------------------------------
+def helptext
+  puts "Running #{__dir__}"
+  #system 'git show -s --format="%ad = %B" '
+  puts <<EOS
 
+     ./livedep.rb <mode>   station:station
+
+     <mode> is either  "t" - train or "b" bus
+
+EOS
+end
+
+#-------------------------------------------------------------------------------
 mode = ARGV.shift
+case mode
+  when /^[tb]/i
+  else
+    helptext
+    exit
+end
+mode = mode.downcase
+
 ARGV.each do |s|
   stop = get_stopname( s )
+  # TODO: change stopename spelling to match printdep
   print_depatures ( getDepartures( mode, stop) )
 end
 puts "end"  #
