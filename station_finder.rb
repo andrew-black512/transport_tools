@@ -1,26 +1,24 @@
+#!/usr/bin/ruby
+require 'pry'
+
 require 'pp'
 require 'csv'
 
-prefix = Hash.new (0)
 
+def find_station ( word )
 CSV.foreach(  '/home/andrew/dev/transport/station_codes.csv' ) do |row|
 	station = row[0]
-	station.gsub!(/\s* \( .* \) /x , '' ) 
-
-	station_words = station.split(" ")
-	if station_words.count > 1
-		#puts station
-    z= [0,station_words.count-1]
-	  z.each do |n|
-
-      prefix [ station_words[n] ] = prefix [ station_words[n] ] + 1
-		end
+	#binding.pry
+	if station.match word
+		binding.pry
+		puts row
 	end
+	exit
+
 end
-#puts prefix
-prefix.sort_by {  |prefix,count| count } .reverse .each do |pair|
-	(prefixname,count) = pair
-	if  count > 1
-	  printf "%-20s %d\n", prefixname, count
-   end
 end
+
+wanted = 'Lond' # ARGV.shift
+wanted_re = Regexp.new wanted
+
+find_station wanted_re
