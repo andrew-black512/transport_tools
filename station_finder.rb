@@ -1,26 +1,23 @@
+#!/usr/bin/ruby
+
 require 'pp'
 require 'csv'
 
-prefix = Hash.new (0)
-
-CSV.foreach(  '/home/andrew/dev/transport/station_codes.csv' ) do |row|
-	station = row[0]
-	station.gsub!(/\s* \( .* \) /x , '' ) 
-
-	station_words = station.split(" ")
-	if station_words.count > 1
-		#puts station
-    z= [0,station_words.count-1]
-	  z.each do |n|
-
-      prefix [ station_words[n] ] = prefix [ station_words[n] ] + 1
+def datafilename (suffixname )
+	File.join __dir__, suffixname
+end
+def find_station ( word )
+    datafile = datafilename 'data/station_codes.csv'
+	  CSV.foreach(  datafile, headers:true ) do |row|
+	  station = row[0]
+		crs_code = row[1]
+		if station.match(word) or crs_code.match(word)
+			puts row
 		end
-	end
+  end
 end
-#puts prefix
-prefix.sort_by {  |prefix,count| count } .reverse .each do |pair|
-	(prefixname,count) = pair
-	if  count > 1
-	  printf "%-20s %d\n", prefixname, count
-   end
-end
+
+wanted = ARGV.shift
+wanted_re = Regexp.new wanted
+
+find_station wanted_re
