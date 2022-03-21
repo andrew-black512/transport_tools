@@ -49,7 +49,7 @@ def print_depatures (dep)
 
       # Note - platform is NULL for EDW  and comes out blank
       format = "    %-6s %-6s %-10s %-3s (%-5s) %-20s %-10s\n"
-      printf format, 'exp', 'aimed', 'status','p','time','dest','TOC'
+      printf format, 'exp', 'aimed', 'status','pl','time','dest','TOC'
       depgroup.each do  |d|
         dep_time = get_dep_time (d) ###["expected_departure_time"] # TODO
         wait = timefromnow( dep_time )
