@@ -57,7 +57,7 @@ def print_depatures (dep)
            d[ 'expected_departure_time' ] ,
            d[ 'aimed_departure_time' ] ,
            d['status'] ,
-           d['platform'] ,
+           d['platform'] || '-' ,
            wait , get_destination(d) , d['operator']
       end
       puts  # blank line between groups
