@@ -48,14 +48,16 @@ def print_depatures (dep)
       #pp depgroup #  an [array] of departures
 
       # Note - platform is NULL for EDW  and comes out blank
+      format = "    %-6s %-6s %-10s %-3s (%-5s) %-20s %-10s\n"
+      printf format, 'exp', 'aimed', 'status','pl','time','dest','TOC'
       depgroup.each do  |d|
         dep_time = get_dep_time (d) ###["expected_departure_time"] # TODO
         wait = timefromnow( dep_time )
-        printf ("    %-6s %-6s %-10s %-3s (%-5s) %-20s %-10s\n") ,
+        printf format ,
            d[ 'expected_departure_time' ] ,
            d[ 'aimed_departure_time' ] ,
            d['status'] ,
-           d['platform'] ,
+           d['platform'] || '-' ,
            wait , get_destination(d) , d['operator']
       end
       puts  # blank line between groups
