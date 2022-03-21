@@ -50,13 +50,21 @@ def get_stopname( textname) # TODO: rename
 end
 #-------------------------------------------------------------------------------
 def helptext
+  puts
   puts "Running #{__dir__}"
   #system 'git show -s --format="%ad = %B" '
   puts <<EOS
 
-     ./livedep.rb <mode>   station:station
+     ./livedep.rb <mode>   <stationcode> .....
+
+     where
+     <stationcode> is
+       station:station  or  station
 
      <mode> is either  "t" - train or "b" bus
+
+     Note:
+      - the API doesnt seem to send platform info for small stations
 
 EOS
 end
