@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+    #!/usr/bin/ruby
 
 # TODO: Add a loop, limited to 10 mins say
 
@@ -18,7 +18,7 @@ end
 def getDepartures( stopnum )
 
   par= [
-  	  'bus' ,
+      'bus' ,
       'stop' ,
       stopnum ,
        ].join '/'
