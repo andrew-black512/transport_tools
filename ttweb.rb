@@ -1,3 +1,5 @@
+#!/usr/bin/ruby
+
 from=ARGV.shift
 to=ARGV.shift
 
