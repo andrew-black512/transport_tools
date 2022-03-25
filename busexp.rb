@@ -1,4 +1,4 @@
-#!/usr/bin/ruby
+    #!/usr/bin/ruby
 
 # TODO: Add a loop, limited to 10 mins say
 
@@ -18,7 +18,7 @@ end
 def getDepartures( stopnum )
 
   par= [
-  	  'bus' ,
+      'bus' ,
       'stop' ,
       stopnum ,
        ].join '/'
@@ -52,7 +52,7 @@ end
 def print_depatures (dep)
   puts stop_name( dep )
   wanted_bus = { } ## TODO: make a param
-  wanted_bus = {'185'=> true, '176'=> true ,'484'=> true} ## TODO: make a param
+  wanted_bus = {'185'=> true, '176'=> true ,'484'=> true, '37'=>true} ## TODO: make a param
 #  wanted_bus.default = true
   # puts  dep.keys.join ','
   dep["departures"].each do |key,depgroup|
