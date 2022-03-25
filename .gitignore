@@ -4,6 +4,9 @@ extract
 test/test_in_progress/
 update-stable.sh
 abdoc/
+doc
+.reserve
+
 
 #Following may be wanted, but check one by one
 .rspec
