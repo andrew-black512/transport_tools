@@ -41,7 +41,10 @@ def getDepartures( par_from, par_to, day ,time )
   #puts response.body.to_s
 
   traindata = JSON::parse(response.body)
-  #puts traindata
+  if err = traindata['error']
+    puts "ERROR: #{err}"
+    exit
+  end
 
   return traindata["departures"]["all"]
 end
