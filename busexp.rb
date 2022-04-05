@@ -39,10 +39,7 @@ def getDepartures( stopnum )
 
   response = HTTParty.get(URI.parse(url))
   check_response (response)
-  trasport_data = JSON::parse(response.body)
-  ## pp trasport_data
-
-  return trasport_data
+  return response
 end
 def get_dep_time ( d )
   case
