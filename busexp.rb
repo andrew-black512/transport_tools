@@ -24,6 +24,10 @@ def check_response( r )
     puts "unexpected response from API:" + r.body[0,30]
     exit
   end
+  if r['error']
+    puts "Error : #{r['error']}"
+    exit
+  end
 end
 #-------------------------------------------------------------------------------
 def getDepartures( stopnum )
