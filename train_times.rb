@@ -7,6 +7,7 @@ require 'optparse/date'
 require 'optparse/time'
 require 'httparty'
 require 'pp'
+require_relative 'lib/human_time.rb'
 
 require_relative 'holiday_add'
 require_relative 'service_utils'
@@ -153,8 +154,8 @@ OptionParser.new do |opts|
      options[:file]=file
    end
 
-   opts.on("-d","--date DATE", Date, "specify date " ) do |date|
-      options[:date] = date
+   opts.on("-d","--date DATE",  "specify date " ) do |date|
+      options[:date] = human_time date
    end
    opts.on("-r", "--reverse", "Reverse direction") do |v|
        options[:reverse] = v
