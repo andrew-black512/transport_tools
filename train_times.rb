@@ -155,7 +155,7 @@ OptionParser.new do |opts|
    end
 
    opts.on("-d","--date DATE",  "specify date " ) do |date|
-      options[:date] = human_time date
+      options[:date] = human_date date
    end
    opts.on("-r", "--reverse", "Reverse direction") do |v|
        options[:reverse] = v
