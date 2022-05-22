@@ -1,4 +1,4 @@
-    #!/usr/bin/ruby
+#!/usr/bin/ruby
 
 # TODO: Add a loop, limited to 10 mins say
 
@@ -15,6 +15,21 @@ def stop_name( dep )
 # TODO: "stop_name": "Elsie Road" might be an alternative
 end
 #-------------------------------------------------------------------------------
+def check_response( r )
+  # r is of class HTTParty.response and might be
+  #  - parsed as JSON
+  #  - raw HTML
+
+  if r.body[0] != "{"
+    puts "unexpected response from API:" + r.body[0,30]
+    exit
+  end
+  if r['error']
+    puts "Error : #{r['error']}"
+    exit
+  end
+end
+#-------------------------------------------------------------------------------
 def getDepartures( stopnum )
 
   par= [
@@ -25,14 +40,10 @@ def getDepartures( stopnum )
   idkey=get_key
 
   url = "http://transportapi.com/v3/uk/#{par}/live.json?#{idkey}"
-  #puts url
 
   response = HTTParty.get(URI.parse(url))
-  #puts response.body.to_s
-  trasport_data = JSON::parse(response.body)
-  ## pp trasport_data
-
-  return trasport_data
+  check_response (response)
+  return response
 end
 def get_dep_time ( d )
   case

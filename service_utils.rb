@@ -146,12 +146,16 @@ def print_departure_details( departures, datetoget, wanted_stations, format)
     extract_times_col_head(  wanted_stations, format )
 
     departures.each do |dep|
-        # Fetch the details for one service
-        resp=transport_api.service  dep['train_uid'] , datetoget
-        ###pp resp if 1 ;#TODO   make config
-        printf $format, resp["toc"]["atoc_code"]
+        if dep['mode'] == 'train'
+            # Fetch the details for one service
+            resp=transport_api.service  dep['train_uid'] , datetoget
+            ###pp resp if 1 ;#TODO   make config
+            printf $format, resp["toc"]["atoc_code"]
 
-        extract_times_col( resp["stops"], wanted_stations, format )
+            extract_times_col( resp["stops"], wanted_stations, format )
+        else
+            puts dep['mode']
+        end
 
 
     end

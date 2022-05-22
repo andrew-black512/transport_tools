@@ -3,10 +3,11 @@
 require 'json'
 require 'time'
 require 'optparse'
-require 'optparse/date'
+####require 'optparse/date'
 require 'optparse/time'
 require 'httparty'
 require 'pp'
+require_relative 'lib/human_time.rb'
 
 require_relative 'holiday_add'
 require_relative 'service_utils'
@@ -41,7 +42,10 @@ def getDepartures( par_from, par_to, day ,time )
   #puts response.body.to_s
 
   traindata = JSON::parse(response.body)
-  #puts traindata
+  if err = traindata['error']
+    puts "ERROR: #{err}"
+    exit
+  end
 
   return traindata["departures"]["all"]
 end
@@ -150,8 +154,8 @@ OptionParser.new do |opts|
      options[:file]=file
    end
 
-   opts.on("-d","--date DATE", Date, "specify date " ) do |date|
-      options[:date] = date
+   opts.on("-d","--date DATE",  "specify date " ) do |date|
+      options[:date] = human_date date
    end
    opts.on("-r", "--reverse", "Reverse direction") do |v|
        options[:reverse] = v
