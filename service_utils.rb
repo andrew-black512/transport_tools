@@ -88,6 +88,15 @@ def get_note( stops )
         when	'PUR'
             ## TODO: better was of DEFINED-OR?
             ## TODO calc the dwell at purley
+            min_split_dwell = 3  #
+            arr = st['aimed_arrival_time']
+            dep = st['aimed_departure_time']
+            if arr && dep
+              dwell = timediff(dep,arr)
+              if dwell > min_split_dwell
+                note += " TAT? d=#{dwell}"
+              end
+            end
             #note += ' ' + 	st['aimed_arrival_time']  if st['aimed_arrival_time']
             #note += ' ' + 	st['aimed_departure_time'] if st['aimed_departure_time']
         end
